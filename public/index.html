@@ -9,11 +9,19 @@
 </head>
 <body>
     <h1>Elysian</h1>
+    <h4>Add Data</h4>
     <input type = "text" placeholder = "ID" id = "IDField">
     <input type = "text" placeholder = "Name" id = "NameField">
     <input type = "text" placeholder = "Stock" id = "StockField">
-    <button onclick = "writeData()">Submit</button>
+    <button onclick = "writeData()">Add</button>
     <button onclick = "getData()">Refresh</button>
+    <h4>Update Data</h4>
+    <input type = "text" placeholder = "ID" id = "IDFieldUpdate">
+    <input type = "text" placeholder = "New Stock" id = "StockFieldUpdate">
+    <button onclick = "updateData()">Update</button>
+    <h4>Delete Data</h4>
+    <input type = "text" placeholder = "ID" id = "IDFieldDelete">
+    <button onclick = "removeData()">Remove</button>
     <hr>
     <table style = "width:100%" id = "table">
         <tr>
@@ -70,6 +78,23 @@
                     cell.innerHTML = userData['Stock'];
                 })
             });
+        }
+        function updateData() {
+            var IDField = document.getElementById("IDFieldUpdate").value;
+            var userKey;
+            var userData;
+            database.ref(IDField).on("value", function(snapshot) {
+                userKey = snapshot.key;
+                userData = snapshot.val();
+            });
+            database.ref(IDField).set({
+                ID: userData['ID'],
+                Name: userData['Name'],
+                Stock: document.getElementById("StockFieldUpdate").value
+            });
+        }
+        function removeData() {
+            database.ref(document.getElementById("IDFieldDelete").value).remove();
         }
     </script>
 </body>
