@@ -6,10 +6,15 @@ h1 {
 h4 {
     text-align: left;
 }
-table, th, td {
+table, td {
     border: 1px solid black;
     border-collapse: collapse;
     background-color: #f0eeed;
+}
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #d2c7bf;
 }
 header {
     background-color: #cdbfb6;
