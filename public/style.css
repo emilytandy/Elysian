@@ -1,0 +1,22 @@
+h1 {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+h4 {
+    text-align: left;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #f0eeed;
+}
+header {
+    background-color: #cdbfb6;
+}
+body {
+    background-color: #ddd9d7;
+}
+div.inputs {
+    float: right;
+}
